@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('spaces', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->string('location');
+            $table->string('phone');
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
+            $table->integer('status');
             $table->timestamps();
+
         });
     }
 
